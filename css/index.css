@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%
+}
+:root {
+    --primary: black;
+    --secondary: gray;
+    --hover: #eee;
+    --accent: white;
+}
+
+/* title - start  */
+.title {
+    background-color: var(--secondary);
+    color: var(--accent);
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+}
+/* title - end  */
