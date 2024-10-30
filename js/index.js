@@ -25,8 +25,13 @@ class TextEditor {
     }
     setContent(content) {
         var _a, _b;
+        if (__classPrivateFieldGet(this, _TextEditor_content, "f") != content) {
+            __classPrivateFieldGet(this, _TextEditor_history, "f")[__classPrivateFieldSet(this, _TextEditor_state, (_b = __classPrivateFieldGet(this, _TextEditor_state, "f"), _a = _b++, _b), "f"), _a] = new TextString(content);
+        }
+        else {
+            throw "The same content.";
+        }
         __classPrivateFieldSet(this, _TextEditor_content, content, "f");
-        __classPrivateFieldGet(this, _TextEditor_history, "f")[__classPrivateFieldSet(this, _TextEditor_state, (_b = __classPrivateFieldGet(this, _TextEditor_state, "f"), _a = _b++, _b), "f"), _a] = new TextString(content);
     }
     undoContent() {
         if (__classPrivateFieldGet(this, _TextEditor_state, "f") - 2 >= 0) {
@@ -54,8 +59,13 @@ const btn = document.querySelectorAll("button");
 const txtBox = document.querySelector(".text-box");
 const tE = new TextEditor();
 btn[0].onclick = function () {
-    tE.setContent(txtBox.value);
-    console.log(txtBox.value);
+    try {
+        tE.setContent(txtBox.value);
+        console.info(`"${txtBox.value}" was saved in the history.`);
+    }
+    catch (error) {
+        console.warn(error);
+    }
 };
 btn[1].onclick = function () {
     try {

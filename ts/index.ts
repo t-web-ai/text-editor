@@ -11,8 +11,13 @@ class TextEditor {
         return this.#content;
     }
     public setContent(content: string): void {
+        if (this.#content != content) {
+            this.#history[this.#state++] = new TextString(content);
+        } else {
+            throw "The same content.";
+        }
         this.#content = content;
-        this.#history[this.#state++] = new TextString(content);
+
     }
     public undoContent(): void {
         if (this.#state - 2 >= 0) {
@@ -39,8 +44,13 @@ const btn = document.querySelectorAll("button");
 const txtBox = <HTMLTextAreaElement>document.querySelector(".text-box");
 const tE: TextEditor = new TextEditor();
 btn[0].onclick = function () {
-    tE.setContent(txtBox.value);
-    console.log(txtBox.value);
+    try {
+        tE.setContent(txtBox.value);
+        console.info(`"${txtBox.value}" was saved in the history.`);
+    } catch (error) {
+        console.warn(error);
+    }
+
 }
 btn[1].onclick = function () {
     try {
