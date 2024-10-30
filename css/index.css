@@ -3,9 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     font-size: 62.5%
 }
+
 :root {
     --primary: black;
     --secondary: gray;
@@ -22,4 +24,80 @@ html {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
 }
+
 /* title - end  */
+
+/* main box - start  */
+.main-box {
+    background-color: var(--hover);
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
+}
+
+@media screen and (min-width: 950px) {
+    .main-box {
+        flex-direction: row;
+    }
+}
+
+/* main box - end  */
+
+/* text box - start  */
+.text-box {
+    width: 100%;
+    height: 300px;
+    font-size: 2.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 1rem;
+    border: none;
+    resize: none;
+    outline: none;
+    position: relative;
+}
+
+.text-box::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* text box - end  */
+
+/* button box - start  */
+.button-box {
+    background-color: var(--secondary);
+    display: flex;
+    padding: 1rem;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+@media screen and (min-width: 950px) {
+    .button-box {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .button-box {
+        flex-wrap: wrap;
+    }
+}
+
+.button-box>button {
+    width: 20rem;
+    padding: 1rem;
+    font-size: 2rem;
+    color: black;
+    border-radius: 0.5rem;
+    background-color: var(--hover);
+    border: none;
+    position: relative;
+}
+.button-box>button:active {
+    transform: scale(0.95);
+}
+/* button box - end  */
