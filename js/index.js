@@ -58,16 +58,16 @@ _TextString_text = new WeakMap();
 const btn = document.querySelectorAll("button");
 const txtBox = document.querySelector(".text-box");
 const tE = new TextEditor();
-btn[0].onclick = function () {
+txtBox.oninput = function () {
     try {
-        tE.setContent(txtBox.value);
-        console.info(`"${txtBox.value}" was saved in the history.`);
+        tE.setContent(this.value);
+        console.info(`"${this.value}" was saved in the history.`);
     }
     catch (error) {
         console.warn(error);
     }
 };
-btn[1].onclick = function () {
+btn[0].onclick = function () {
     try {
         tE.undoContent();
         txtBox.value = tE.getContent();

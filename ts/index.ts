@@ -43,16 +43,15 @@ class TextString {
 const btn = document.querySelectorAll("button");
 const txtBox = <HTMLTextAreaElement>document.querySelector(".text-box");
 const tE: TextEditor = new TextEditor();
-btn[0].onclick = function () {
+txtBox.oninput = function(){
     try {
-        tE.setContent(txtBox.value);
-        console.info(`"${txtBox.value}" was saved in the history.`);
+        tE.setContent((this as HTMLTextAreaElement).value);
+        console.info(`"${(this as HTMLTextAreaElement).value}" was saved in the history.`);
     } catch (error) {
         console.warn(error);
     }
-
 }
-btn[1].onclick = function () {
+btn[0].onclick = function () {
     try {
         tE.undoContent();
         txtBox.value = tE.getContent();
