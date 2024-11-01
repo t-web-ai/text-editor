@@ -99,6 +99,7 @@ html {
     background-color: var(--hover);
     border: none;
     position: relative;
+    flex-grow: 1;
 }
 .button-box>button:active {
     transform: scale(0.95);
