@@ -101,6 +101,11 @@ html {
     position: relative;
     flex-grow: 1;
 }
+@media screen and (min-width: 950px) {
+    .button-box>button {
+        flex-grow: 0;
+    }
+}
 .button-box>button:active {
     transform: scale(0.95);
 }
