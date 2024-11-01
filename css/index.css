@@ -91,7 +91,7 @@ html {
 }
 
 .button-box>button {
-    width: 100%;
+    width: 20rem;
     padding: 1rem;
     font-size: 2rem;
     color: black;
@@ -99,11 +99,6 @@ html {
     background-color: var(--hover);
     border: none;
     position: relative;
-}
-@media screen and (min-width: 950px) {
-    .button-box>button {
-        width: 20rem;
-    }
 }
 .button-box>button:active {
     transform: scale(0.95);
